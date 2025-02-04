@@ -1,305 +1,53 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>许浩的主页</title>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="/static/favicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video-js.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
-
+    <title>张维为表情包检索</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .bold {
-            font-weight: bold
-        }
-
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            box-sizing: border-box;
-            display: flex;
         }
-
-        .left {
-            flex: 1;
-
-        }
-
-        .right {
-            flex: 0 0 200px;
-            margin-left: 20px;
-            text-align: right;
-        }
-
-        .profile-img {
-            width: 222px;
-            height: 310px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .wechat-img {
-            margin-top: 20px;
-            width: 150px;
-            height: 158px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .section {
+        #searchBox {
+            width: 100%;
+            padding: 12px;
             margin-bottom: 20px;
+            font-size: 16px;
         }
-
-        .section h2 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 24px;
+        #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
         }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skill {
-            background-color: #ddd;
-            color: #333;
-            padding: 5px 10px;
-            border-radius: 20px;
-            margin-right: 10px;
-            font-size: 14px;
-        }
-
-        .controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .btn {
-            width: 150px;
-            padding: 8px;
-            background-color: #428bca;
-            border-color: #357ebd;
-            color: #fff;
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            /* future proofing */
-            -khtml-border-radius: 10px;
-            /* for old Konqueror browsers */
-            text-align: center;
-            vertical-align: middle;
-            border: 1px solid transparent;
-            font-weight: 900;
-            font-size: 125%;
+        .img-item {
             cursor: pointer;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
         }
-
-        .lastComment {
-            font-style: italic;
-            color: #aaaaaa;
+        .img-item:hover {
+            transform: scale(1.05);
         }
-
-        #myvideo {
-            align-items: center;
+        #randomContainer {
+            text-align: center;
+            margin-bottom: 30px;
         }
-
-        .mypar {
-            font-family: "宋体";
-        }
-
-        .self_intro {
-            text-indent: 2em;
-            margin: 5px 0em 5px 0em;
-            /* font-family: 宋体; */
-        }
-
-        /* ul li{
-			list-style: none;
-		} */
-        /* p {
-			padding-bottom: 20px;
-		} */
-        p {
-            line-height: 1.5;
+        #randomImage {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="left">
-            <h1>许浩的主页</h1>
-            <div id="myvideo" style="display: none;">
-                <video id="my-player" class="video-js" controls width="640" height="400" poster="static/cover.jpg"
-                    preload data-setup="{}">
-                    <source src="/self_video/self.m3u8" type="application/x-mpegURL" />
-                </video>
-                <!-- <button class="button" onclick="closeVideo()">关闭</button> -->
-            </div>
-
-            <div class="section">
-                <h2>🏫教育</h2>
-                <ul>
-                    <li><span class="bold">南京农业大学</span>&nbsp&nbsp人工智能学院 计算机科学与技术 本科</li>
-                    <li><span class="bold">GPA</span> 3.98/4.5 &nbsp &nbsp &nbsp &nbsp<span class="bold">专业排名</span>
-                        3/74&nbsp &nbsp &nbsp &nbsp<span class="bold">CET6</span> 566</li>
-
-                </ul>
-            </div>
-            <div class="section">
-                <h2>🙋‍♂️我的故事</h2>
-                <p class="self_intro">我原来在我校农学院金善宝植物实验班学习，大一上信息技术基础课时第一次接触编程，对编程产生了浓厚的兴趣。编程可以非常清晰地表达自我，
-                    我非常喜欢这种感觉，便萌发了转专业的念头，可是大一下学期的转专业考核我并没有如愿通过。在大二的时候，我辅修了本校的计算机双学位，
-                    在学习原专业课程的同时学习C语言、数据结构等课程，坚持了一学年，我依然热爱并且更加热爱计算机，于是大二学年末的时候，我再次参加了转专业，在这一次的考核中，我如愿通过，
-                    顺利地转入了我校的计科专业。这次转专业使我从2019级降至2020级，重新开始大二生活。</p>
-                <p class="self_intro">在过去不简单的学习经历中，我收获了对计算机的笃定，我感到我就是要去做这样的事情，我想我会成为出色的程序员。
-                    我深知，计算机有着许许多多不同的侧面，我对大部分领域都简单了解并且怀有高度的热忱。</p>
-                <p class="self_intro">我想要进入一个领域，一猛子扎下去，去穿越那些未知却又迷人的迷雾，开辟自己的一方天地。
-                </p>
-            </div>
-
-            <div class="section">
-                <h2>️🖥️项目经历</h2>
-                <span class="bold">（一）参与校级大学生创新训练项目：拟南芥m6A修饰与mRNA长距离运输的相关性分析</span><br>
-                <span class="bold">项目简介：</span>
-                <span>该生物信息学项目将拟南芥的可移动基因与m6A甲基化基因进行比较，利用超几何分布检验二者的相关性，同时分析m6A甲基化修饰在基因上的分布区间及其生物学功能。
-                    <p style="margin-top: 5px;"><span class="bold">我的职责：</span>
-                        <br>1.编写代码整理基因测序数据
-                        <br>2.在Linux下利用生物信息工具bedtools分析甲基化修饰的分布区间
-                </span></p>
-
-                <span class="bold">（二）主持国家级大学生创新训练项目：机器视觉在木地板瑕疵检测中的应用</span> <br>
-                <span class="bold">项目简介：</span>
-                <span>本项目采用深度学习方法，对木地板表面的褶皱、凹坑、逃色等瑕疵进行目标检测。项目难点在于：木地板的天然纹理复杂，不易与瑕疵区分；凹坑、坏点等瑕疵为小目标，不易检测；
-                    检测场景为纯木地板图像，与常见的目标检测场景不同。
-                    <p style="margin-top: 5px;"><span class="bold">我的职责：</span>
-                        <br>1.带领小组学习深度学习，承担部分数据标注任务，完成数据格式转换
-                        <br>2.设计实验方案：对比YOLOv5与Cascade RCNN在该场景下的性能表现，结果显示：后者精度远优于前者，且前者的收敛速度较慢；
-                        在Cascade RCNN网络中加入PANet，丰富特征网络的语义信息，进一步提高模型精度
-                        <br>3.搭建与训练目标检测模型
-                </span></p>
-
-                <span class="bold">（三）基于深度学习的草莓生长状态监测</span><br>
-                <span class="bold">项目简介：</span>
-                <span>此为参加新大陆杯计算机设计大赛的作品。项目队伍共3人，完成了一个可识别草莓病虫害与营养缺乏、对果实计数并预测产量的微信小程序。小程序可检测图片与视频，目前已提交审核。
-                </span>
-                <p style="margin-top: 5px;"><span class="bold">我的职责：</span>
-                    <span>
-                        <br>1.制作数据集：使用开源爬虫爬取草莓病虫害图片；部分数据标注；格式转换
-                        <br>2.搭建、训练与部署模型：图片检测采用Cascade　RCNN；视频检测采用YOLOv8（检测器）与DeepOCSORT（跟踪器）；部署环境为ONNXRuntime
-                        <br>3.编写整个后端代码：后端框架为FastAPI，采用了git进行项目管理
-                    </span><span class="bold">
-                        <br><a href="https://njaustrawberry.asia/">体验链接</a>
-                    </span>
-                </p>
-
-
-                <span class="bold">（四）面向校内学生的二手交易网站</span><br>
-                <span class="bold">项目简介：</span>
-                <span><a href="https://njaustrawberry.asia/bye2buy#/application">Bye2Buy</a>
-                    是由我独立开发并上线的二手交易网站。其具有搜索、浏览和发布二手物品的功能，网站的特色是采用了IP检查来限制用户只能在南京市玄武区注册，以提高安全性。网站提供HTTPS服务，前端框架是vue，后端框架为FastAPI，采用轻量数据库SQLite，支持并发访问。
-                    目前已经有近百名同学注册使用。<br><br>可使用测试账户（qq：1234567，密码123）登录体验。
-                </span>
-            </div>
-
-            <div class="section">
-                <h2>📚阅读</h2>
-                <span class="bold">已经阅读的书</span>
-                <ul>
-                    <li>《汇编语言》 王爽</li>
-                    <li>《卷积神经网络的Python实现》 单建华</li>
-                    <li>《流畅的Python》</li>
-                    <li>《动手学深度学习》Pytorch版</li>
-                </ul>
-                <span class="bold">准备阅读的书</span>
-                <ul>
-                    <li>《统计学习方法》 李航</li>
-                    <li>《龙书》</li>
-                </ul>
-            </div>
-            <div class="section">
-                <h2>🛠️专业技能</h2>
-                <ul>
-                    <li><span class="bold">操作系统：</span>了解进程管理、处理机调度及其死锁、文件管理、内存管理</li>
-                    <li><span class="bold">精通Python：</span>了解装饰器、生成器、异步等特性，可用C++编写Python库，Leetcode Python刷题300余道</li>
-                    <li><span class="bold">深度学习：</span>掌握Pytorch框架与MMDetection框架，可独立完成模型的构建、训练与ONNX部署</li>
-                    <li><span class="bold">Web技术：</span>可独自搭建网站</li>
-                </ul>
-
-            </div>
-            <div class="section">
-                <h2>🚀其他技能</h2>
-                <div class="skills">
-                    <span class="skill">LaTeX写作</span>
-                    <span class="skill">使用GPT</span>
-                    <span class="skill">烹饪</span>
-                </div>
-            </div>
-            <div class="section">
-                <h2>🏆获奖</h2>
-                <ul>
-                    <li style="list-style: none;"><span>💰 国家励志奖学金&nbsp&nbsp金善宝农业教育奖学金&nbsp&nbsp三好学生一等奖学金</span> </li>
-                    <li style="list-style: none;"><span>🥉 蓝桥杯程序设计大赛省赛三等奖（Python 组）</span></li>
-                    <li style="list-style: none;"><span>🥉 新大陆杯计算机设计大赛省赛优胜奖</span></li>
-                    <li style="list-style: none;"><span>🥈 外研社国才杯英语阅读大赛校赛二等奖</span></li>
-                    <li style="list-style: none;"><span>🥉 图书馆校级征文比赛三等奖</span></li>
-                </ul>
-            </div>
-            <div class="section">
-                <h2>📫与我联系</h2>
-                <ul>
-                    <li><span class="bold">☎️&nbsp电话</span> 18792067859</li>
-                    <li><span class="bold">📗&nbsp博客</span> <a href="https://www.cnblogs.com/ykts/">许培风的博客园</a></li>
-                    <li><span class="bold">📫&nbsp邮箱</span> xuhao269634@163.com</li>
-                    <li><span class="bold">🏘️&nbsp来自</span> 安徽省六安市舒城县汤池镇</li>
-                </ul>
-            </div>
-
-            <div class="lastComment">做困难的事，生活就会变简单。<br>网页最后更新于&nbsp&nbsp2023/7/09</div>
-        </div>
-
-        <div class="right">
-            <img src="static/me.jpg" alt="个人照片" class="profile-img">
-            <!--	本站二维码	-->
-        </div>
-
+<div class="container">
+    <h1>张维为表情包检索</h1>
+    <div id="randomContainer">
+        <img id="randomImage" alt="随机表情">
     </div>
-    <script>
-        var video = document.getElementById("my-player");
-        var controls = document.getElementById("myvideo");
-        var button = document.getElementById("play-pause");
-        var isPlay = false;
-        video.addEventListener('touchstart', () => {
-            if (isPlay) {
-                video.pause()
-                isPlay = false
-            } else {
-                video.play()
-                isPlay = true;
-            }
-        });
-        function playVideo() {
-            if (isPlay) {
-                button.value = "观看自我介绍";
-                controls.style.display = "none";
-                isPlay = false;
-                video.pause()
-            } else {
-                button.value = "关闭";
-                controls.style.display = "flex";
-                isPlay = true;
-            }
-        }
-    </script>
+    <input type="text" id="searchBox" placeholder="输入关键词（如：自信、笑）...">
+    <div id="results"></div>
+</div>
+<script src="scripts/main.js"></script>
 </body>
-
 </html>
