@@ -11,7 +11,7 @@ const files = fs.readdirSync(IMAGE_DIR);
 
 // 生成 jsDelivr CDN 链接
 const cdnImages = files.map(filename => {
-    return `https://cdn.jsdelivr.net/gh/${GITHUB_USERNAME}/${REPO_NAME}@latest/images/${filename}`;
+    return `https://gcore.jsdelivr.net/gh/${GITHUB_USERNAME}/${REPO_NAME}@latest/images/${filename}`;
 });
 
 // 生成 JavaScript 文件内容
